@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="html2pdf.bundle.min.js"></script>
+    <title>Calculadora ART</title>
+</head>
+<body>
+    <img class="logo" src="images/orgfer.png" width="200" alt="Logo Organización Fernandez">
+    
+    <h1>CALCULADORA ART</h1>
+
+    <h2 for="DatosPers">DATOS PERSONALES</h2>
+    <div class="datos">
+        <form name="rellenar" action="" method="GET">
+            <label class="datosTitulo" for="Nombre">Nombre:</label>
+            <input class="datosConten" type="text" name="Nombre" id="Nombre" onkeyup="data()">
+            <label class="datosTitulo" for="Apellido">Apellido:</label>
+            <input class="datosConten" type="text" name="Apellido" id="Apellido"onkeyup="data()">
+            <label class="datosTitulo" for="Mail">Mail:</label>
+            <input class="datosConten" type="email" name="Mail" id="Mail" onkeyup="data()">
+            <label class="datosTitulo" for="Telefono">Teléfono:</label>
+            <input class="datosConten" type="tel" name="Telefono" id="Telefono" onkeyup="data()">
+
+            
+
+        </form>
+    </div>
+    <h2 for="DatosPers">TIPO DE INDEMNIZACIÓN A COTIZAR</h2>
+    <form name="radioForm" action="">
+        <label for="muerte"><input type="radio" name="indemnizacion" class="radio" id="muerteRadio" value="Indemnización por Muerte">Muerte</label>
+        <label for="parcial"><input type="radio" name="indemnizacion" class="radio" id="parcialRadio" value="Indemnización por Incapacidad">Incapacidad</label>
+    </form>
+
+            <div id="muerteData">
+                <h2 for="DatosPers">DATOS PARA COTIZAR</h2>
+                <form class="formulario" action="" method="GET">
+                    <label>Edad al momento del accidente:</label>
+                    <input type="number" id="edad1" value="0" placeholder="edad" onkeyup="indemnizacionMuerte()">
+                    <label>Sueldo:</label>
+                    <input type="number" id="sueldo1" value="0" placeholder="sueldo" onkeyup="indemnizacionMuerte()">
+                    <label class="separar">Indemnización calculada: </label>
+                    <div id="result" class="colorBut"></div>
+                    
+                    <p>Monto Mínimo legal:</p>
+                    <div id="minLegalMuerte" class="colorBut"></div>
+
+                    <p>Indemnización a pagar:</p>
+
+                    <div id="resultFinal" class="colorBut"></div>
+                    
+                    <p>Adicional de pago único: </p>
+                    <div id="pagounicoMuerte" class="colorBut"></div>
+
+                    <p>Total a pagar:</p>
+
+                    <div id="resultSuma" class="colorBut"></div>
+
+                </form>
+            </div>
+            
+            <div id="parcialData">
+                <h2 for="DatosPers">Seleccionar tipo de indemnización a cotizar:</h2>
+                <form class="formulario" action="" method="GET">
+                    <label>Edad al momento del accidente:</label>
+                    <input type="number" id="edad2" value="0" placeholder="Edad" onkeyup="indemnizacionIncapacidad()">
+                    <label>Porcentaje Incapacidad:</label>
+                    <input type="number" id="porcentaje" value="0" placeholder="Porcentaje Incapacidad" onkeyup="indemnizacionIncapacidad()">
+                    <label>Sueldo:</label>
+                    <input type="number" id="sueldo2" value="0" placeholder="Sueldo" onkeyup="indemnizacionIncapacidad()">
+                    
+                    <label class="separar">Indemnización calculada: </label>
+                    <div id="result2" class="colorBut"></div>
+            
+                    <p>Monto Mínimo legal:</p>
+                    <div id="minLegal" class="colorBut"></div>
+
+                    <p>Indemnización a pagar:</p>
+                    <div id="resultFinal3" class="colorBut"></div>
+
+                    <p>Adicional de pago único: </p>
+                    <div id="pagounico" class="colorBut"></div>
+
+                    <p>Indemnización Final por todo Concepto: </p>
+                    <div id="pagototal" class="colorBut"></div>
+
+                </form>
+
+                <h2 for="DatosPers">COTIZACIÓN</h2>
+            </div>
+
+        
+    <div id="display-info"></div>
+
+    <div class="datosPersonales">
+        
+        <table>
+            <tbody>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Mail</th>
+            <th>Teléfono</th>
+            <th>Indemnización Seleccionada</th>
+        
+            <tr>
+                <td><div id="NombreData"></div></td>
+                <td><div id="ApellidoData"></div></td>
+                <td><div id="MailData"></div></td>
+                <td><div id="TelefonoData"></div></td>
+                <td><div id="resultRadio"></div></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+    
+
+    <div class="datosMuerte">
+
+        <table>
+            <tr>
+                <th>Edad al momento del Accidente</th>
+                <th>Sueldo</th>
+                <th>Mínimo Legal</th>
+                <th>Adicional Pago Único</th>
+                <th>Monto Indemnización</th>
+                <th>Pago Total por Todo Concepto</th>
+
+            </tr>
+
+            <tr>   
+                <td><div id="edadData"></div></td>
+                <td><div id="sueldoData"></div></td>
+                <td><div id="minLegalMuerteData"></div></td>
+                <td><div id="pagounicoMuerteData"></div></td>
+                <td><div id="resultFinalData"></div></td>
+                <td><div id="resultSumaData"></div></td>
+                
+            </tr> 
+
+        </table> 
+
+    </div>
+
+    <div class="datosIncapacidad">
+    <table>
+        <tr>
+            <th>Edad al momento del Accidente</th>
+            <th>Sueldo</th>
+            <th>Porcentaje Incapacidad</th>
+            <th>Tipo De Incapacidad</th>
+            <th>Mínimo Legal</th>
+            <th>Adicional Pago Único</th>
+            <th>Monto Indemnización</th>
+            <th>Pago Total por Todo Concepto</th>
+        </tr>
+        <tr>
+            <td><div id="edadIncData"></div></td>
+            <td><div id="sueldoIncData"></div></td>
+            <td><div id="montoInc"></div></td>
+            <td><div id="tipoInc"></div></td>
+            <td><div id="minLegalIncData"></div></td>
+            <td><div id="pagounicoIncData"></div></td>
+            <td><div id="resultFinal3Data"></div></td>
+            <td><div id="pagototalIncData"></div></td>
+
+        </tr>        
+    </table>
+    </div>
+
+    <div class="datosPersonales">
+        <button id="btnCrearPdf">Descargar Cotización en PDF</button>
+    </div>
+    
+
+
+
+
+  <footer>
+     <p>Creado por JessiDepetris</p> 
+  </footer>
+</body>
+</html>

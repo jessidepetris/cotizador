@@ -1,0 +1,110 @@
+body{
+    background-image: radial-gradient(circle at 12.5% 12.5%, #1d3947 0, #0f2131 50%, #345270 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    color: aliceblue;
+}
+
+h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    color: aliceblue;
+    margin:2rem;
+    border: 2px;
+    border-color: azure;
+    border-style: solid;
+    padding: 1rem;
+    width:90%;
+    
+}
+
+
+p, label, div, th, td, table, tr, input{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    color: aliceblue;
+    padding: 1rem;
+}
+
+table{
+    border-collapse: collapse;
+    padding: 2rem;
+    align-items: center;
+}
+
+th,tr, td{
+    border: 1px;
+    border-style: solid;
+    border-color: rgb(210, 219, 228);
+    border-collapse: collapse;
+
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+}
+
+input, label {
+    padding: 0.5rem;
+    width:25rem;
+}
+
+.datosPersonales, .datosMuerte, .datosIncapacidad {
+    display: none;  
+}
+
+input{
+    background: inherit;
+    background-color:transparent;
+    height: 1rem;
+    border: 2px;
+    border-style: solid;
+    border-color: rgb(57, 248, 255);
+}
+
+.logo{
+    margin-top:3rem;
+}
+
+#btnCrearPdf{
+    margin:2rem;
+    padding:0.5rem;
+    background-color: aqua;
+    color: #0f2131;
+    border: none;
+    font-size: 1.2rem;
+}
+
+#btnCrearPdf:hover{
+    background-color: aliceblue;
+} 
+
+.separar{
+    padding-top: 2rem;
+}
+
+#muerteData, #parcialData, #totalData {
+    display: none;
+    width: 100%;
+}
+
+.colorBut{
+    font-size: 1.5rem;
+    background-color: rgba(100, 101, 138, 0.548);
+    border-radius: 2%;
+}
